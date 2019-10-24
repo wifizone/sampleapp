@@ -11,6 +11,8 @@
 		89F0495B235F48C900BD4075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F0495A235F48C900BD4075 /* Assets.xcassets */; };
 		89F0495E235F48C900BD4075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F0495C235F48C900BD4075 /* LaunchScreen.storyboard */; };
 		89F04966235F499100BD4075 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F04965235F499100BD4075 /* CarViewController.swift */; };
+		A6BDB19E2361836500869088 /* CarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDB19D2361836500869088 /* CarViewPresenter.swift */; };
+		A6BDB1A02361850800869088 /* CarApplicationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BDB19F2361850800869088 /* CarApplicationRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		89F0495D235F48C900BD4075 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89F0495F235F48C900BD4075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89F04965235F499100BD4075 /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
+		A6BDB19D2361836500869088 /* CarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewPresenter.swift; sourceTree = "<group>"; };
+		A6BDB19F2361850800869088 /* CarApplicationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarApplicationRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +56,31 @@
 		89F04952235F48C400BD4075 /* SampleAnimationApp */ = {
 			isa = PBXGroup;
 			children = (
+				A6BDB1A323618C0E00869088 /* PresentationLayer */,
+				A6BDB1A523618C4500869088 /* Resources */,
 				89F04953235F48C400BD4075 /* AppDelegate.swift */,
-				89F0495A235F48C900BD4075 /* Assets.xcassets */,
 				89F0495C235F48C900BD4075 /* LaunchScreen.storyboard */,
-				89F0495F235F48C900BD4075 /* Info.plist */,
-				89F04965235F499100BD4075 /* CarViewController.swift */,
 			);
 			path = SampleAnimationApp;
+			sourceTree = "<group>";
+		};
+		A6BDB1A323618C0E00869088 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				89F04965235F499100BD4075 /* CarViewController.swift */,
+				A6BDB19D2361836500869088 /* CarViewPresenter.swift */,
+				A6BDB19F2361850800869088 /* CarApplicationRouter.swift */,
+			);
+			name = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		A6BDB1A523618C4500869088 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				89F0495A235F48C900BD4075 /* Assets.xcassets */,
+				89F0495F235F48C900BD4075 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BDB1A02361850800869088 /* CarApplicationRouter.swift in Sources */,
+				A6BDB19E2361836500869088 /* CarViewPresenter.swift in Sources */,
 				89F04954235F48C400BD4075 /* AppDelegate.swift in Sources */,
 				89F04966235F499100BD4075 /* CarViewController.swift in Sources */,
 			);
