@@ -11,9 +11,9 @@ import UIKit
 /// Вью контроллер для отображения двигающейся машины
 class CarViewController: UIViewController {
 	
+    /// Презентер вьюшки
 	var presenter: CarViewPresenterInputProtocol?
 	
-	private var destinationPoint: CGPoint = CGPoint(x: 0, y: 0)
 	private var carImageView: UIImageView?
 	private var tapGesture: UITapGestureRecognizer {
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureHandler))
@@ -53,21 +53,21 @@ class CarViewController: UIViewController {
 }
 
 extension CarViewController: CarViewProtocol {
-    
-	func routeCarAnimated() {
-		UIView.animateKeyframes(withDuration: 2, delay: 0, options: .calculationModeCubic, animations: {
-			
-			UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5/3.0, animations: {
-				self.rotateCar(to: self.destinationPoint)
-			})
-			UIView.addKeyframe(withRelativeStartTime: 0.5/3.0, relativeDuration: 2.5/3.0, animations: {
-				guard let carImageView = self.carImageView else { return }
-				carImageView.center = self.destinationPoint
-			})
-		}, completion: { (_) in
-			self.presenter?.didFinishAnimatingCar()
-		})
-	}
+    func routeCarAnimatedTo(point: Point) {
+        let destinationPoint = CGPoint(x: point.x, y: point.y)
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: .calculationModeCubic, animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5/3.0, animations: {
+                self.rotateCar(to: destinationPoint)
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.5/3.0, relativeDuration: 2.5/3.0, animations: {
+                guard let carImageView = self.carImageView else { return }
+                carImageView.center = destinationPoint
+            })
+        }, completion: { (_) in
+            self.presenter?.didFinishAnimatingCar()
+        })
+    }
 	
 	private func rotateCar(to destinationPoint:CGPoint) {
 		guard let carImageView = carImageView else { return }
@@ -81,8 +81,8 @@ extension CarViewController: CarViewProtocol {
 extension CarViewController: UIGestureRecognizerDelegate {
 	
 	@objc func tapGestureHandler(gestureRecognizer: UITapGestureRecognizer) {
-		destinationPoint = gestureRecognizer.location(in: view)
-		self.presenter?.didTapNewCarLocation()
+		let destinationPoint = gestureRecognizer.location(in: view)
+        self.presenter?.didTapNewCarLocationAt(point: Point(x: Double(destinationPoint.x), y: Double(destinationPoint.y)))
 	}
 	
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

@@ -9,26 +9,30 @@
 import Foundation
 
 /// Протокол принимает события от вьюшки/вьюконтроллера
-protocol CarViewPresenterInputProtocol {
+protocol CarViewPresenterInputProtocol: AnyObject {
 	
 	/// Пользователь выбрал новую точку для машины на экране
-	func didTapNewCarLocation()
+    ///
+    /// - Parameter point: точка, по которой тапнул пользователь
+    func didTapNewCarLocationAt(point: Point)
 	
 	/// Анимация передвижения машины закончилась
 	func didFinishAnimatingCar()
 }
 
 /// Протокол дает задачи вьюшке/вьюконтроллеру
-protocol CarViewProtocol {
+protocol CarViewProtocol: AnyObject {
 	
 	/// Переместить машину в новую точку анимированно
-	func routeCarAnimated()
+    ///
+    /// - Parameter point: точка, по которой тапнул пользователь
+    func routeCarAnimatedTo(point: Point)
 }
 
 /// Презентер экрана с машиной
 class CarViewPresenter {
     
-	private var carView: CarViewProtocol
+	private weak var carView: CarViewProtocol?
 	private var isAnimating: Bool = false
 	
 	/// Конструктор презентера
@@ -40,13 +44,12 @@ class CarViewPresenter {
 }
 
 extension CarViewPresenter: CarViewPresenterInputProtocol {
-    
-	func didTapNewCarLocation() {
-		if (!isAnimating) {
-			self.carView.routeCarAnimated()
-			isAnimating = true
-		}
-	}
+    func didTapNewCarLocationAt(point: Point) {
+        if (!isAnimating) {
+            self.carView?.routeCarAnimatedTo(point: point)
+            isAnimating = true
+        }
+    }
 	
 	func didFinishAnimatingCar() {
 		isAnimating = false

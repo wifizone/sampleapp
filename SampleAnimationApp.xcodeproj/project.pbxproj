@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8971779C2365BA51000599A1 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971779B2365BA51000599A1 /* Point.swift */; };
 		89F04954235F48C400BD4075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F04953235F48C400BD4075 /* AppDelegate.swift */; };
 		89F0495B235F48C900BD4075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F0495A235F48C900BD4075 /* Assets.xcassets */; };
 		89F0495E235F48C900BD4075 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F0495C235F48C900BD4075 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8971779B2365BA51000599A1 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		89F04950235F48C400BD4075 /* SampleAnimationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAnimationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F04953235F48C400BD4075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89F0495A235F48C900BD4075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8971779D2365E0A1000599A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8971779B2365BA51000599A1 /* Point.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		89F04947235F48C400BD4075 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		89F04952235F48C400BD4075 /* SampleAnimationApp */ = {
 			isa = PBXGroup;
 			children = (
+				8971779D2365E0A1000599A1 /* Models */,
 				A6BDB1A323618C0E00869088 /* PresentationLayer */,
 				A6BDB1A523618C4500869088 /* Resources */,
 				89F04953235F48C400BD4075 /* AppDelegate.swift */,
@@ -154,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6BDB1A02361850800869088 /* CarApplicationRouter.swift in Sources */,
+				8971779C2365BA51000599A1 /* Point.swift in Sources */,
 				A6BDB19E2361836500869088 /* CarViewPresenter.swift in Sources */,
 				89F04954235F48C400BD4075 /* AppDelegate.swift in Sources */,
 				89F04966235F499100BD4075 /* CarViewController.swift in Sources */,
